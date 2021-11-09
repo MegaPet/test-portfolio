@@ -24,8 +24,6 @@
     --small-h1: 3.3rem;
     --smaller-h1: 2.5rem;
     --paragraph: 1.8rem;
-    --small-parpagraph:1.5rem;
-    --smaller-paragraph: 1.3rem;
     --small: 1.5rem;
     /*heights*/
     --nav: 75px;
@@ -49,6 +47,38 @@
     to{
         -ms-transform: scaleY(1.5);
     } 
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes leftStartMove{
+    from{
+        transform: translate(-1000px,0px);
+        opacity: 0;
+    }
+    to{
+        
+        transform: translate(0,0px);
+        opacity:1;
+    }
+}
+@keyframes rightStartMove{
+    from{
+        transform: translate(+1000px,0px);
+        opacity: 0;
+        display: none;
+    }
+    to{
+        
+        transform: translate(0,0px);
+        opacity: 1;
+        display: block;
+    }
 }
 /*webkit styles*/
 *{
@@ -209,6 +239,8 @@ nav{
 .welcome_dec{
     position: relative;
     margin-left: 80px;
+    animation: leftStartMove 1s ease-out;
+    animation-fill-mode: both;
 }
 .welcome_pic{
     max-width: 650px;
@@ -247,6 +279,9 @@ nav{
 .welcome_content a:hover{
     cursor: pointer;
 }
+.welcome_content h1,.welcome_content p,.welcome_content a{    
+    animation: rightStartMove 2s ease-out;
+}
 .welcome_big{
     position: absolute;
     width: 200px;
@@ -272,6 +307,7 @@ nav{
     align-items: center;
     justify-content: space-around;
     height: calc(100vh - var(--nav));
+    min-width: 100vh;
     overflow: hidden;
     padding: 20px;
 }
@@ -339,7 +375,7 @@ nav{
 
 .services{
     position: relative;
-    max-width: 100%;
+    min-width: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -362,6 +398,7 @@ nav{
     padding: 10px;
     transition: 0.2s linear;
     position: relative;
+    animation: fadeIn 1s ease-out;
 }
 .card:hover{
     transform: scale(1.02);
@@ -409,7 +446,7 @@ nav{
     position: relative;
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    min-width: 100vh;
     padding: 10px;
     overflow: hidden;
 }
@@ -429,7 +466,7 @@ nav{
     flex-direction: column;
     max-width: 40%;
     justify-content: space-evenly;
-    margin-left: 50px;
+    gap: 1rem;
 }
 .connect input[type="text"], .connect textarea{
     background: rgba(0, 0, 0, 0);
@@ -483,6 +520,7 @@ footer{
     background: var(--dark-gray);
     font-size: var(--small);
     padding: 15px;
+    min-width: 100vh;
 }
 footer ul{
     display: flex;
@@ -504,14 +542,6 @@ footer ul a{
     .about .about_content p
     {
         max-width: 600px;
-        font-size: var(--small-parpagraph);
-    }
-    .welcome_content h1,
-    .about .about_content h1{
-        font-size: var(--small-h1);
-    }
-    .welcome_content .btn{
-        font-size: var(--small-parpagraph);
     }
     .welcome_pic,
     .about_pic{
@@ -538,9 +568,6 @@ footer ul a{
         top: 475px;
         left: 10px;
     }
-    .card p{
-        font-size: var(--small-parpagraph);
-    }
     .contact_pic{
         width: 700px;
     }
@@ -554,23 +581,23 @@ footer ul a{
     }
     .welcome_content p,
     .about_content p,
-    .card p{
-        font-size: var(--smaller-paragraph);
+    .card p{   
         width: unset;
-    }
-    .welcome_content h1,
-    .about_content h1,
-    .card h1{
-        font-size: var(--smaller-h1);
     }
     .welcome_dec{
         width: 50vh;
     }
     .welcome_pic,
     .about_pic{
-        max-width: 100%;
+        max-width: 80%;
     }
     .services_pic{
-        max-width: 70%;
+        max-width: 40%;
     }
+    .card{
+        width: 30vh;
+        height: 55vh;
+        
+    }
+
 }
