@@ -185,7 +185,7 @@ nav{
     color: var(--text-hover);
 }
 #logo_img{
-   min-width: 3.5rem;
+    min-width: 3.5rem;
     height: 3.5rem;
 }
 #logo_img:hover{
@@ -198,7 +198,7 @@ nav{
     right: 20em;
 }
 .changebox_label{
-   min-width: 60px;
+    min-width: 60px;
     height: 60px;
     display: flex;
     bottom: 20px;
@@ -228,19 +228,19 @@ nav{
     display: block;
 }
 .welcome{
-    height: calc(100vh - var(--nav));
+    position: relative;
+    padding-top: var(--nav);
+    height: 90vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-width: 100%;
     overflow: hidden;
-    padding: 2rem;
+    padding: 1rem;
 }
 .welcome_dec{
     position: relative;
     margin-left: 80px;
-    animation: leftStartMove 1s ease-out;
-    animation-fill-mode: both;
 }
 .welcome_pic{
     max-width: 650px;
@@ -266,7 +266,7 @@ nav{
     text-align: center;
     align-self: center;
     text-decoration: unset;
-    padding: 20px;
+    padding: 1rem;
     min-width: 250px;
     font-size: var(--paragraph);
     color: var(--text-color);
@@ -279,9 +279,7 @@ nav{
 .welcome_content a:hover{
     cursor: pointer;
 }
-.welcome_content h1,.welcome_content p,.welcome_content a{    
-    animation: rightStartMove 2s ease-out;
-}
+
 .welcome_big{
     position: absolute;
     width: 200px;
@@ -295,7 +293,7 @@ nav{
     position: absolute;
     min-width: 500px;
     height: 500px;
-    top: 2rem;
+    top: 0%;
     right: -25rem;
     background-color: var(--primary);
     z-index: -1;
@@ -309,13 +307,13 @@ nav{
     height: calc(100vh - var(--nav));
     min-width: 100vh;
     overflow: hidden;
-    padding: 20px;
+    padding: 1rem;
 }
 .about_content{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 20px;
+    margin: 0;
 }
 
 .about_content h1,.about_content p{
@@ -399,6 +397,7 @@ nav{
     transition: 0.2s linear;
     position: relative;
     animation: fadeIn 1s ease-out;
+    overflow: hidden;
 }
 .card:hover{
     transform: scale(1.02);
@@ -416,12 +415,17 @@ nav{
 .card h1{
     color: var(--white);
     margin-bottom: 10px;
+    text-align: center;
+    align-self: center;
+}
+#card2Title{
+    margin-bottom: 15px;
 }
 
 .card p{
     color: var(--white);
-    font-size: 22px;
-   min-width: 30vh;
+    font-size: var(--small);
+    min-width: 30vh;
     text-align: justify;
 }
 
@@ -545,16 +549,13 @@ footer ul a{
     }
     .welcome_pic,
     .about_pic{
-        max-width: 500px;
+        width: 500px;
     }
     .welcome_big{
         width: 150px;
         height: 150px;
         left: -75px;
         top: 225px;
-    }
-    .welcome_dec{
-        margin-left: 80px;
     }
     .about_circle_white{
         min-width: 400px;
@@ -567,6 +568,9 @@ footer ul a{
         max-height: 150px;
         top: 475px;
         left: 10px;
+    }
+    .card{
+        max-width: 25vw;
     }
     .contact_pic{
         width: 700px;
@@ -582,22 +586,33 @@ footer ul a{
     .welcome_content p,
     .about_content p,
     .card p{   
-        width: unset;
+        width: 80%;
     }
-    .welcome_dec{
-        width: 50vh;
+    #card2Title{
+        padding-bottom: 20px;
+    }
+    .welcome_dec,
+    .welcome_content{
+        min-width: 40vw;
+    }
+    .welcome_big{
+        top:275px;
+        left:-50px;
+        width: 100px;
+        height: 100px;
+    }
+    .welcome_small{
+        height: 350px;
+        min-width: 350px;
+        top: 0px;
+        right: -200px;
     }
     .welcome_pic,
     .about_pic{
-        max-width: 80%;
+        max-width: 100%;
     }
     .services_pic{
-        max-width: 40%;
-    }
-    .card{
-        width: 30vh;
-        height: 55vh;
-        
+        max-width: 35%;
     }
 
 }
