@@ -33,24 +33,37 @@ function buttonNotWorking(){
     window.alert('Nem értek még hozzá, sajnálom nem fog menni, pusszantás!')
 }
 
-jQuery(window).resize(function () {
+function FontSizer() {
     var r = document.querySelector(':root');
     var windowWidth = jQuery(document).width();
+    console.log('windows width : '+ windowWidth);
     if(windowWidth > 1510){
-        r.style.setProperty('--nav-links', '2.5rem')
-        r.style.setProperty('--h1', '3.5rem')
-        r.style.setProperty('--paragraph', '1.8rem')
-        r.style.setProperty('--small', '1.5rem')
-    }else if(windowWidth < 1510){
-        r.style.setProperty('--nav-links', '2rem')
-        r.style.setProperty('--h1', '3.3rem')
-        r.style.setProperty('--paragraph', '1.5rem')
-        r.style.setProperty('--small', '1.2rem')
-    }else if(windowWidth > 1300){
-        console.log('windows width : '+ windowWidth);
-        r.style.setProperty('--nav-links', '1.3rem')
-        r.style.setProperty('--h1', '2rem')
-        r.style.setProperty('--paragraph', '1rem')
-        r.style.setProperty('--small', '1.2rem')
+        console.log('font size been setted');
+        r.style.setProperty('--nav-links', '2.5rem');
+        r.style.setProperty('--h1', '3.5rem');
+        r.style.setProperty('--paragraph', '1.8rem');
+        r.style.setProperty('--small', '1.5rem');
+    }else if(windowWidth < 1510 && windowWidth > 1300){
+        r.style.setProperty('--nav-links', '2rem');
+        r.style.setProperty('--h1', '3rem');
+        r.style.setProperty('--paragraph', '1.3rem');
+        r.style.setProperty('--small', '1.1rem');
+        console.log('font size been setted');
+    }else if(windowWidth < 1300){
+        console.log("siker");
+        r.style.setProperty('--nav-links', '1.8rem');
+        r.style.setProperty('--h1', '2rem');
+        r.style.setProperty('--paragraph', '1.2rem');
+        r.style.setProperty('--small', '1rem');
+        console.log('font size been setted');
     }
-}) 
+}
+void function getItemsPos(element){
+    this.element = document.getElementsByClassName("element");
+    var rect = element.getBoundingClientRect();
+    return console.log(rect);
+}
+
+jQuery(window).resize(FontSizer);
+window.onload =FontSizer();
+
